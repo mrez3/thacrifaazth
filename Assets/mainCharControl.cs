@@ -23,7 +23,6 @@ public class mainCharControl : MonoBehaviour {
     public AudioClip[] stepsounds;
     public AudioClip thacrifaazthSound;
     public AudioClip[] die;
-    
 
     public static int count = 0;
     public static charsArr charArray;
@@ -42,8 +41,8 @@ public class mainCharControl : MonoBehaviour {
         sr = GetComponent<SpriteRenderer>();
         c = sr.color;
         audioSource = GetComponent<AudioSource>();
-        talk = GetComponentInChildren<Light>().GetComponent<AudioSource>();
         cam = FindObjectOfType<Camera>();
+        talk = cam.GetComponent<AudioSource>();
         count++;
         animator = gameObject.GetComponent<Animator>();
     }
@@ -57,6 +56,7 @@ public class mainCharControl : MonoBehaviour {
     
     public void kill()
     {
+        talk.PlayOneShot(die[Random.Range(0, die.Length)]);
         count--;
         if(count <= 0)
         {

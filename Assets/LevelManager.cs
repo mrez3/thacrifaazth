@@ -9,7 +9,7 @@ public class LevelManager : MonoBehaviour {
     public Text t, btn;
     public Button button;
     
-    public static int numOfLevels = 1;
+    public static int numOfLevels = 5;
 
     public void Lose()
     {
